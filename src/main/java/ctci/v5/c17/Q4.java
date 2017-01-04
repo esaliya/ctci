@@ -1,4 +1,4 @@
-package c17;
+package ctci.v5.c17;
 
 public class Q4 {
     /**

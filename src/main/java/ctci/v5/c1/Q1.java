@@ -1,4 +1,4 @@
-package c1;
+package ctci.v5.c1;
 
 import java.util.HashSet;
 
