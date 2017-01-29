@@ -1,7 +1,5 @@
-package ctci.v6.p70;
+package ctci.v6.chVII.p70;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Hashtable;
 
 /**
