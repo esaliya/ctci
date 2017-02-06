@@ -120,9 +120,9 @@ void Q1_9()
 {
     map<string, string> m;
     m.insert(std::pair<string, string>("waterbottle", "erbottlewa"));
-     m.insert(std::pair<string, string>("caterbottle", "erbottlecat"));
+    m.insert(std::pair<string, string>("caterbottle", "erbottlecat"));
     m.insert(std::pair<string, string>("mail", "ilma"));
-  
+
     StringFunctions sf;
     for (map<string, string>::iterator it = m.begin(); it != m.end(); it++){
         cout<<"string "<<it->first<<" and "<<it->second<<" are "<<(sf.Q1_9_IsRotation(it->first, it->second) ? "":"not ")<<"a rotaion."<<endl;
