@@ -1,18 +1,34 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.26206.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "strings", "..\string\strings.vcxproj", "{C7581EEA-91E2-4822-806E-5225717C6192}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "linkedlist", "..\linkedlist\linkedlist.vcxproj", "{E098FCBC-55E5-4D1F-92C6-8C305A7306FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
 		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C7581EEA-91E2-4822-806E-5225717C6192}.Debug|Win32.ActiveCfg = Debug|Win32
 		{C7581EEA-91E2-4822-806E-5225717C6192}.Debug|Win32.Build.0 = Debug|Win32
+		{C7581EEA-91E2-4822-806E-5225717C6192}.Debug|x64.ActiveCfg = Debug|Win32
 		{C7581EEA-91E2-4822-806E-5225717C6192}.Release|Win32.ActiveCfg = Release|Win32
 		{C7581EEA-91E2-4822-806E-5225717C6192}.Release|Win32.Build.0 = Release|Win32
+		{C7581EEA-91E2-4822-806E-5225717C6192}.Release|x64.ActiveCfg = Release|Win32
+		{E098FCBC-55E5-4D1F-92C6-8C305A7306FB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E098FCBC-55E5-4D1F-92C6-8C305A7306FB}.Debug|Win32.Build.0 = Debug|Win32
+		{E098FCBC-55E5-4D1F-92C6-8C305A7306FB}.Debug|x64.ActiveCfg = Debug|x64
+		{E098FCBC-55E5-4D1F-92C6-8C305A7306FB}.Debug|x64.Build.0 = Debug|x64
+		{E098FCBC-55E5-4D1F-92C6-8C305A7306FB}.Release|Win32.ActiveCfg = Release|Win32
+		{E098FCBC-55E5-4D1F-92C6-8C305A7306FB}.Release|Win32.Build.0 = Release|Win32
+		{E098FCBC-55E5-4D1F-92C6-8C305A7306FB}.Release|x64.ActiveCfg = Release|x64
+		{E098FCBC-55E5-4D1F-92C6-8C305A7306FB}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
