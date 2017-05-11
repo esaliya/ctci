@@ -7,7 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "strings", "..\string\string
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "linkedlist", "..\linkedlist\linkedlist.vcxproj", "{E098FCBC-55E5-4D1F-92C6-8C305A7306FB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "msc", "msc\msc.vcxproj", "{1318B8F1-23F7-41F3-9D25-4A6E22440559}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "msc", "..\msc\msc.vcxproj", "{1318B8F1-23F7-41F3-9D25-4A6E22440559}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
