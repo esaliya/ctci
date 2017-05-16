@@ -83,6 +83,7 @@ struct ListNode
 	ListNode(int val) : value(val), next(nullptr) {}
 };
 
+
 class LinkedListUtils
 {
 public:
@@ -152,6 +153,28 @@ public:
 			node = node->next;
 			delete tmp;		
 		}
+	}
+
+	ListNode* ReverseList(ListNode* head)
+	{
+		if (head == nullptr)
+		{
+			throw std::exception("List is null.");
+		}
+		ListNode  newHead(0);
+
+		ListNode* tmp;
+		ListNode* tmpHead;
+		while (head != nullptr)
+		{
+			tmp = newHead.next;
+			tmpHead = head->next;
+			newHead.next = head;
+			head->next = tmp;
+			head = tmpHead;
+		}
+
+		return newHead.next;
 	}
 };
 
