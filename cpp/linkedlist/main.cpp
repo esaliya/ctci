@@ -78,11 +78,21 @@ void Q2_1_RemoveDuplicates()
 	lst.Display();
 }
 
+void ReverseList()
+{
+	LinkedListUtils llutils;
+	ListNode* head = llutils.BuildLinkedList();
+	llutils.DisplayList(head);
+	head = llutils.ReverseList(head);
+	llutils.DisplayList(head);
+}
+
 int main()
 {
 	//TestStack();
 
-	Q2_1_RemoveDuplicates();
+	//Q2_1_RemoveDuplicates();
+	ReverseList();
 
 	cout << "Hello from linkedlist" << endl;
 	int x;
