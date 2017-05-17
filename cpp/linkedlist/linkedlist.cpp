@@ -112,6 +112,55 @@ public:
 		return head;
 	}
 
+	ListNode* BuildPalindromeLinkedList()
+	{
+		// build linkedlist
+		ListNode* head;
+		ListNode* tail;
+		ListNode* tmp;
+
+		int count = 9;
+		int multiplier = 100;
+
+		bool twoMidPoints = false;
+		if (count % 2 == 0) 
+		{
+			twoMidPoints = true;
+		}
+
+		int midPoint = count / 2;
+
+		for (int i = 0; i < count; ++i)
+		{
+			if (i < midPoint)
+			{
+				tmp = new ListNode(i * multiplier);				
+			}
+			else
+			{
+				if (twoMidPoints && i == (midPoint))
+				{
+					tmp = new ListNode((i - 1) * multiplier);
+				}
+				else
+				{
+					tmp = new ListNode(multiplier * count - (i+1) * multiplier);
+				}
+				
+			}
+			if (i == 0)
+			{
+				head = tail = tmp;
+			}
+			else
+			{
+				tail->next = tmp;
+				tail = tmp;
+			}
+		}
+		return head;
+	}
+
 	void DisplayList(ListNode* node)
 	{
 		while (node != nullptr)
@@ -162,7 +211,6 @@ public:
 			throw std::exception("List is null.");
 		}
 		ListNode  newHead(0);
-
 		ListNode* tmp;
 		ListNode* tmpHead;
 		while (head != nullptr)
@@ -175,6 +223,73 @@ public:
 		}
 
 		return newHead.next;
+	}
+
+	ListNode* ReverseBetween(ListNode* head, int m, int n)
+	{
+		ListNode* newHead = new ListNode(0);
+		newHead->next = head;
+
+		ListNode* pre = newHead;
+		for (int i = 0; i < m - 1; ++i)
+		{
+			pre = pre->next;
+		}
+		ListNode* cur = pre->next;
+
+		for (int i = 0; i < n - m; ++i)
+		{
+			ListNode* move = cur->next;
+			cur->next = move->next;
+			move->next = pre->next;
+			pre->next = move;
+		}
+		return newHead->next;
+	}
+
+	bool IsPalnidrome(ListNode** head)
+	{
+		if (*head == nullptr)
+		{
+			throw std::exception("List is null");
+		}
+		else if ((*head)->next == nullptr)
+		{
+			return true;
+		}		
+
+		ListNode* slow = *head;
+		ListNode* fast = *head;
+		int midPoint = 0;
+
+		while (fast != nullptr && fast->next != nullptr)
+		{			
+			slow = slow->next;
+			midPoint++;						
+			fast = fast->next->next;						
+		}
+		
+		if (fast != nullptr)
+		{
+			slow = slow->next;
+		}
+
+		*head = ReverseBetween(*head, 0, midPoint-1);
+		DisplayList(*head);
+		
+		ListNode* tmp = *head;
+
+		while (slow != nullptr)
+		{
+			if (slow->value != tmp->value)
+			{
+				return false;
+			}
+			slow = slow->next;
+			tmp = tmp->next;
+		}
+
+		return true;
 	}
 };
 

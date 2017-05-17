@@ -87,12 +87,35 @@ void ReverseList()
 	llutils.DisplayList(head);
 }
 
+void ReverseBetween()
+{
+	LinkedListUtils llutils;
+	ListNode* head = llutils.BuildLinkedList();
+	llutils.DisplayList(head);
+	head = llutils.ReverseBetween(head,3, 6);
+	llutils.DisplayList(head);
+
+	
+}
+
+void IsPalindrome()
+{
+	LinkedListUtils llutils;
+	ListNode* head = llutils.BuildPalindromeLinkedList();
+
+
+	llutils.DisplayList(head);
+	cout<<"Is Palindrome "<<llutils.IsPalnidrome(&head)<<endl;
+	llutils.DisplayList(head);
+}
+
 int main()
 {
 	//TestStack();
 
 	//Q2_1_RemoveDuplicates();
-	ReverseList();
+	//ReverseBetween();
+	IsPalindrome();
 
 	cout << "Hello from linkedlist" << endl;
 	int x;
