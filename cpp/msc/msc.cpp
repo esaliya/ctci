@@ -3,6 +3,7 @@
 #include <math.h>
 #include <chrono>
 #include <thread>
+#include <vector>
 #define PI 3.14159265
 
 using namespace std;
@@ -149,26 +150,127 @@ private:
 
 };
 
-
-int main(int argc, char* argv[])
+class PrimeNumbers
 {
+public:
+	vector<int> GetPrimeNumbers(int numPrimes)
+	{
+		vector<int> primes;
+		bool isPrime = true;
+		for (int i = 0; i < numPrimes; ++i)
+		{
+			isPrime = true;
+			for (int j = 2; j < i; ++j)
+			{
+				if (i % j == 0)
+				{
+					isPrime = false;
+					break;
+				}
+			}
+			if (isPrime)
+			{
+				primes.push_back(i);
+			}
+		}
+		return primes;
+	}
+};
 
+void PrimeNumberTest()
+{
+	int count = 1000000;
+	PrimeNumbers pn;
+	vector<int> primes = pn.GetPrimeNumbers(count);
+	int i = 0;
+
+	for (auto ite = primes.begin(); ite != primes.end(); ++ite)
+	{
+		cout << i++ << "," << *ite << endl;
+	}
+
+	cout << primes.size() << "," << primes[primes.size() - 1] << endl;
+};
+
+
+void Cars()
+{
+	/*
 	Vechicle* car = new Car();
 	Location dest(1, 1);
 	car->SetDestination(dest);
 	car->Start();
 	std::thread t1([&]() { car->Drive();});
-	std::thread t2([&]() { 
-		while (car->IsDriving())
-		{
-			Location loc = car->GetLocation();
-			cout << "["<< loc.X << "," << loc.Y << "]"<<endl;
-			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-		}
-		});
+	std::thread t2([&]() {
+	while (car->IsDriving())
+	{
+	Location loc = car->GetLocation();
+	cout << "["<< loc.X << "," << loc.Y << "]"<<endl;
+	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+	}
+	});
 	t1.join();
 	t2.join();
 	car->Stop();
+	*/
+}
+
+class Node
+{
+public:
+	Node() 
+	{
+		cout << "Node is called" << endl;
+	}
+
+	Node(const Node& other)
+	{
+		value = other.value;
+		cout << "Node Copy is called" << endl;
+	}
+
+	const Node& operator=(const Node& other)
+	{
+		value = other.value;
+		cout << "Node assignment is called" << endl;
+		return *this;
+	}
+
+	Node(int v) : value(v) {}	
+	int value;
+};
+
+void ArrayTest()
+{
+	int a[10];
+	a[0] = 100;
+
+	cout << "Calling Node b[10]" << endl << endl;
+	Node b[10];
+	b[0].value = 100;
+
+	cout << "Calling new Node b[10]" << endl << endl;
+	Node* c = new Node[10];
+	c[0].value = 5000;
+	c[2] =  Node(250);
+	(c + 3)->value = 600;
+
+	cout << "Calling vector<Node> v(5)" << endl << endl;
+	vector<Node> v(5);
+	v[0].value = 10;
+	
+	vector<Node> vv;
+	vv.push_back(Node(1000));
+
+}
+
+int main(int argc, char* argv[])
+{
+
+	//Cars();
+	//PrimeNumberTest();
+
+	ArrayTest();
 
 	cout << "Hello" << endl;
 	int x;
