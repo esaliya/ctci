@@ -109,13 +109,28 @@ void IsPalindrome()
 	llutils.DisplayList(head);
 }
 
+void AddNumbers()
+{
+	LinkedListUtils lutils;
+	ListNode* a = lutils.BuildNumberList(1234);
+	ListNode* b = lutils.BuildNumberList(567);
+	lutils.DisplayList(a);
+	lutils.DisplayList(b);
+	ListNode* c = lutils.AddTwoNumbers(a, b);
+	lutils.DisplayList(c);
+
+	ListNode* d = lutils.AddNumbersRecursive(a, b, 0);
+	lutils.DisplayList(d);
+}
+
 int main()
 {
 	//TestStack();
 
 	//Q2_1_RemoveDuplicates();
 	//ReverseBetween();
-	IsPalindrome();
+	//IsPalindrome();
+	AddNumbers();
 
 	cout << "Hello from linkedlist" << endl;
 	int x;

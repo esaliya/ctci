@@ -112,6 +112,31 @@ public:
 		return head;
 	}
 
+	ListNode* BuildNumberList(int number)
+	{
+		ListNode* head = nullptr;
+		ListNode* tail = nullptr;
+		int digit = 0;
+
+		while (number != 0)
+		{
+			digit = number % 10;
+			number = number / 10;
+			if (head == nullptr)
+			{
+				head = new ListNode(digit);
+				tail = head;
+			}
+			else
+			{
+				tail->next = new ListNode(digit);
+				tail = tail->next;
+			}
+		}
+
+		return head;
+	}
+
 	ListNode* BuildPalindromeLinkedList()
 	{
 		// build linkedlist
@@ -245,6 +270,87 @@ public:
 			pre->next = move;
 		}
 		return newHead->next;
+	}
+
+	ListNode* AddTwoNumbers(ListNode* a, ListNode* b)
+	{
+		ListNode* res = nullptr;
+		ListNode* tail = nullptr;
+		int d1 = 0;
+		int d2 = 0;
+		int sum = 0;
+
+		if (a == nullptr && b == nullptr)
+		{
+			return res;
+		}
+
+		while (a != nullptr || b !=  nullptr)
+		{
+			sum = 0;
+			if (a != nullptr)
+			{
+				sum += a->value;
+				a = a->next;				
+			}			
+
+			if (b != nullptr)
+			{
+				sum += b->value;
+				b = b->next;
+			}
+
+			sum += d2;
+
+			d1 = sum % 10;
+			d2 = sum / 10;
+
+			if (res == nullptr)
+			{
+				res = new ListNode(d1);
+				tail = res;				
+			}
+			else
+			{
+				tail->next = new ListNode(d1);
+				tail = tail->next;
+			}
+		}
+		if (d2 != 0)
+		{
+			tail->next = new ListNode(d2);
+			tail = tail->next;
+		}
+		return res;
+	}
+
+	ListNode* AddNumbersRecursive(ListNode* a, ListNode* b, int carry)
+	{
+		if (a == nullptr && b == nullptr && carry == 0)
+		{
+			return nullptr;
+		}
+
+		int sum = 0;
+		if (a != nullptr)
+		{
+			sum += a->value;			
+		}
+
+		if (b != nullptr)
+		{
+			sum += b->value;		
+		}
+
+		sum += carry;
+		carry = sum / 10;
+
+		ListNode* res = new ListNode(sum % 10);
+
+		res->next = AddNumbersRecursive((a != nullptr) ? a->next : nullptr,
+			(b != nullptr) ? b->next : nullptr, carry);
+
+		return res;
 	}
 
 	bool IsPalnidrome(ListNode** head)
