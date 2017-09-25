@@ -1,2 +1,3 @@
 test1
 test2
+adding test3 from the hotfix branch
