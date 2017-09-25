@@ -4,3 +4,5 @@ adding a line from master.
 adding test3 from the hotfix branch
 This is from model_compress brnach.
 This will be a pull conflict at the master. 
+try to see pull conflicts.
+
