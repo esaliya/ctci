@@ -1,15 +1,47 @@
 package leetcode;
 
 import java.util.HashMap;
+import java.util.Arrays;
 
 public class LongestSubstrWithNoRepeats {
   public static void main (String [] args) {
     LongestSubstrWithNoRepeats p = new LongestSubstrWithNoRepeats();
     String def = "pwwkew";
-    System.out.println("LSWNR for " + (args.length > 0 ? args[0] : def) + ": " +  p.lengthOfLongestSubstring(args.length > 0 ? args[0] : def));
 
+    System.out.println("LSWNR for " + (args.length > 0 ? args[0] : def) + ": " +  p.lengthOfLongestSubstring(args.length > 0 ? args[0] : def));
+    System.out.println("LSWNR for " + (args.length > 0 ? args[0] : def) + ": " +  p.lengthOfLongestSubstringFast(args.length > 0 ? args[0] : def));
   }
-  
+
+  // See if I can do better in terms of timing by avoiding the use of hashmap lookups
+  // the idea is to think that max such length is <= # letters in the alphabet
+  public int lengthOfLongestSubstringFast(String s) {
+    int [] alph = new int[256];
+    Arrays.fill(alph, -1);
+
+    int startIdx = 0;
+    int endIdx = 0;
+
+    int maxLength = -1;
+    int runningLength = 0;
+
+    while (endIdx < s.length()) {
+      char c = s.charAt(endIdx);
+      
+      if (alph[c] >= startIdx) {
+        runningLength = endIdx - alph[c]; 
+        startIdx = alph[c] + 1;
+      } else {
+        ++runningLength;
+        maxLength = runningLength > maxLength ? runningLength : maxLength;
+      }
+      alph[c] = endIdx;
+
+      ++endIdx;
+    }
+    return maxLength;
+  }
+
+  // My original code
   public int lengthOfLongestSubstring(String s) {
     HashMap<Character, Integer> charToPos = new HashMap<>();
     int startIdx = 0;
